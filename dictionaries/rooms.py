@@ -1,16 +1,28 @@
-import functions as func
+# import functions as func
 
-inventory = []
+# inventory = []
 
-current_room = "Kitchen"
+# current_room = "Kitchen"
 
 rooms = {
     "Hall": {
-        "north": "Kitchen"
+        "north": "Kitchen",
+        "east": "Dining Room",
+        "item": "key"
     },
     "Kitchen": {
         "south": "Hall",
         "item": "chainsaw"
+    },
+    "Garden": {
+        "north": "Dining Room",
+        "west": "Hall",
+        "item": "Chainsaw"
+    },
+    "Dining Room": {
+        "west": "Hall",
+        "item": "potion",
+        "south": "Garden"
     }
 }
 
