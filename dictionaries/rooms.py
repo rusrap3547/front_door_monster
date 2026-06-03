@@ -1,48 +1,91 @@
-# import functions as func
-
-# inventory = []
-
-# current_room = "Kitchen"
 
 rooms = {
-    "Hall": {
+    "Dining Hall": {
         "north": "Kitchen",
-        "east": "Dining Room",
+        "south": "Music Room",
+        "west": "Foyer",
         "item": "key"
     },
     "Kitchen": {
-        "south": "Hall",
+        "east": "Garden",
+        "south": "Dining Hall",
         "item": "chainsaw"
     },
     "Garden": {
-        "north": "Dining Room",
-        "west": "Hall",
+        "north": "Dining Hall",
+        "west": "Kitchen",
         "item": "Chainsaw"
     },
-    "Dining Room": {
-        "west": "Hall",
+    "Music Room": {
+        "west": "Foyer",
+        "north": "Dining Hall",
         "item": "potion",
         "south": "Garden"
-    }
+    },
+    "Foyer": {
+        "north": "Upstairs Landing",
+        "east": "Dining Hall",
+        "west": "Library",
+        "south": "Front Door",
+        "item": "",
+    },
+    "Library": {
+        "east": "Foyer",
+        "north": "Study",
+        "south": "Billiard Room",
+        "item": ""
+    },
+    "Study": {
+        "south": "Library",
+        "item": ""
+    },
+    # UPSTAIRS
+    "Upstairs Landing": {
+        "south": "Foyer",
+        "west": "Master Bedroom",
+        "east": "HallwayOne",
+        "north": "Balcony",
+        "item": ""
+    },
+    "Master Bedroom": {
+        "east": "Upstairs Landing",
+        "item": ""
+    },
+    "HallwayOne": {
+        "west": "Upstairs Landing",
+        "south": "HallwayTwo",
+        "east": "Boys Bedroom",
+        "item": ""
+    },
+    "Boys Bedroom": {
+        "west": "HallwayOne",
+        "item": ""
+    },
+    "HallwayTwo": {
+        "north": "HallwayOne",
+        "east": "Bathroom",
+        "south": "HallwayThree",
+        "item": ""
+    },
+    "Bathroom": {
+        "west": "HallwayTwo",
+        "item": ""
+    },
+    "HallwayThree": {
+        "east": "Girls Bedroom",
+        "north": "HallwayTwo",
+        "item": ""
+    },
+    "Master Bedroom": {
+        "east": "Upstairs Landing",
+        "south": "Waiting Room", 
+        "item": ""
+    },
+    "Waiting Room": {
+        "north": "Master Bedroom",
+        "south": "Master Bathroom",
+        "item": ""
+    },
 }
 
-# while True:
-#     print(f"You are currently in the {current_room}.")
-#     move = input(">")
-#     move = move.split(" ",1)
-#     if move[0] == "get":
-#         if move[1] == rooms[current_room]["item"]:
-#             print(f"You got the {move[1]}!")
-#             inventory.append(move[1])
-#             rooms[current_room]["item"] = ""
-#         else:
-#             print("There is not one here.")
-            
-#     if move[0] == "go":
-#         if move[1] in rooms[current_room]:
-#             current_room = rooms[current_room][move[1]]
-#             print(f"You are now in the {current_room}.")
-#         else:
-#             print("You can't go that way.")
-            
 
