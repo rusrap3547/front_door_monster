@@ -1,10 +1,13 @@
 import dictionaries.functions as func
 import dictionaries.rooms as rooms
+import dictionaries.monsters as monster
+
+from dictionaries.monsters import Vampire
 
 func.showInstructions()
 
 inventory = []
-currentRoom = "Kitchen"
+currentRoom = monster["Vampire"]["startingRoom"]
 
 while True:
     print(f"You are currently in the {currentRoom}.")

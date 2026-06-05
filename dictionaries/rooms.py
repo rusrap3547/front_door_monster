@@ -4,23 +4,27 @@ rooms = {
         "north": "Kitchen",
         "south": "Music Room",
         "west": "Foyer",
-        "item": "key"
+        "item": "",
+        "randEvent": ""
     },
     "Kitchen": {
         "east": "Garden",
         "south": "Dining Hall",
-        "item": "chainsaw"
+        "item": "",
+        "randEvent": ""
     },
     "Garden": {
         "north": "Dining Hall",
         "west": "Kitchen",
-        "item": "Chainsaw"
+        "item": "",
+        "randEvent": ""
     },
     "Music Room": {
         "west": "Foyer",
         "north": "Dining Hall",
-        "item": "potion",
-        "south": "Garden"
+        "item": "",
+        "south": "Garden",
+        "randEvent": ""
     },
     "Foyer": {
         "north": "Upstairs Landing",
@@ -28,16 +32,38 @@ rooms = {
         "west": "Library",
         "south": "Front Door",
         "item": "",
+        "randEvent": ""
     },
     "Library": {
         "east": "Foyer",
         "north": "Study",
         "south": "Billiard Room",
-        "item": ""
+        "item": "",
+        "randEvent": ""
     },
     "Study": {
         "south": "Library",
-        "item": ""
+        "west": "Boarding Room",
+        "item": "",
+        "randEvent": ""
+    },
+    "Boarding Room": {
+        "east": "Kitchen",
+        "west": "Study",
+        "item": "",
+        "randEvent": ""
+    },
+    "Backyard": {
+        "south": "boarding room",
+        "west": "Green House",
+        "item": "",
+        "event": "Monster",
+        "randEvent": ""
+    },
+    "Green House": {
+        "east": "Backyard",
+        "item": "",
+        "randEvent": ""
     },
     # UPSTAIRS
     "Upstairs Landing": {
@@ -45,46 +71,60 @@ rooms = {
         "west": "Master Bedroom",
         "east": "HallwayOne",
         "north": "Balcony",
-        "item": ""
+        "item": "",
+        "randEvent": ""
     },
     "Master Bedroom": {
         "east": "Upstairs Landing",
-        "item": ""
+        "item": "",
+        "randEvent": ""
     },
     "HallwayOne": {
         "west": "Upstairs Landing",
         "south": "HallwayTwo",
         "east": "Boys Bedroom",
-        "item": ""
+        "item": "",
+        "randEvent": ""
     },
     "Boys Bedroom": {
         "west": "HallwayOne",
-        "item": ""
+        "item": "",
+        "randEvent": ""
     },
     "HallwayTwo": {
         "north": "HallwayOne",
         "east": "Bathroom",
         "south": "HallwayThree",
-        "item": ""
+        "item": "",
+        "randEvent": ""
     },
     "Bathroom": {
         "west": "HallwayTwo",
-        "item": ""
+        "item": "",
+        "randEvent": ""
     },
     "HallwayThree": {
         "east": "Girls Bedroom",
         "north": "HallwayTwo",
-        "item": ""
+        "item": "",
+        "randEvent": ""
     },
     "Master Bedroom": {
         "east": "Upstairs Landing",
         "south": "Waiting Room", 
-        "item": ""
+        "item": "",
+        "randEvent": ""
     },
     "Waiting Room": {
         "north": "Master Bedroom",
         "south": "Master Bathroom",
-        "item": ""
+        "item": "",
+        "randEvent": ""
+    },
+    "Master Bathroom": {
+        "north": "Waiting Room",
+        "item": "",
+        "randEvent": ""
     },
 }
 
