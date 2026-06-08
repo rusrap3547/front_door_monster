@@ -1,131 +1,164 @@
-
 rooms = {
-    "Dining Hall": {
-        "north": "Kitchen",
-        "south": "Music Room",
-        "west": "Foyer",
+    "Front Door": {
+        "north": "Foyer",
+        "description": "The heavy front door rattles in its frame as wind howls outside.",
         "item": "",
-        "randEvent": ""
-    },
-    "Kitchen": {
-        "east": "Garden",
-        "south": "Dining Hall",
-        "item": "",
-        "randEvent": ""
-    },
-    "Garden": {
-        "north": "Dining Hall",
-        "west": "Kitchen",
-        "item": "",
-        "randEvent": ""
-    },
-    "Music Room": {
-        "west": "Foyer",
-        "north": "Dining Hall",
-        "item": "",
-        "south": "Garden",
-        "randEvent": ""
+        "puzzle": "",
     },
     "Foyer": {
         "north": "Upstairs Landing",
         "east": "Dining Hall",
         "west": "Library",
         "south": "Front Door",
+        "description": "Moonlight leaks through dusty glass and paints the foyer in silver.",
         "item": "",
-        "randEvent": ""
+        "puzzle": "",
+    },
+    "Dining Hall": {
+        "north": "Kitchen",
+        "south": "Music Room",
+        "west": "Foyer",
+        "description": "A long dining table is set for guests who never came.",
+        "item": "",
+        "puzzle": "",
+    },
+    "Kitchen": {
+        "east": "Garden",
+        "south": "Dining Hall",
+        "description": "Rusty pans sway gently although there is no breeze.",
+        "item": "meat",
+        "puzzle": "",
+    },
+    "Garden": {
+        "north": "Music Room",
+        "west": "Kitchen",
+        "description": "Overgrown vines choke old stone paths in the dark garden.",
+        "item": "garlic",
+        "puzzle": "",
+    },
+    "Music Room": {
+        "west": "Foyer",
+        "north": "Dining Hall",
+        "south": "Garden",
+        "description": "A cracked piano sits silent, but one key is still pressed down.",
+        "item": "",
+        "puzzle": "",
     },
     "Library": {
         "east": "Foyer",
         "north": "Study",
         "south": "Billiard Room",
-        "item": "",
-        "randEvent": ""
+        "description": "Shelves of brittle books loom overhead like watching faces.",
+        "item": "silverware",
+        "puzzle": "",
     },
     "Study": {
         "south": "Library",
         "west": "Boarding Room",
-        "item": "",
-        "randEvent": ""
+        "description": "A dead fireplace and scattered notes suggest a desperate plan.",
+        "item": "stake",
+        "puzzle": "",
     },
     "Boarding Room": {
-        "east": "Kitchen",
-        "west": "Study",
-        "item": "",
-        "randEvent": ""
+        "east": "Study",
+        "north": "Backyard",
+        "description": "Narrow beds line the walls, each with torn sheets and claw marks.",
+        "item": "lightning",
+        "puzzle": "",
     },
     "Backyard": {
-        "south": "boarding room",
+        "south": "Boarding Room",
         "west": "Green House",
+        "description": "Cold mud and dead weeds stretch toward the shadowed greenhouse.",
         "item": "",
-        "event": "Monster",
-        "randEvent": ""
+        "puzzle": "",
     },
     "Green House": {
         "east": "Backyard",
-        "item": "",
-        "randEvent": ""
+        "description": "Shattered panes glitter like teeth around strange pale plants.",
+        "item": "front door key",
+        "puzzle": "",
     },
-    # UPSTAIRS
+    "Billiard Room": {
+        "north": "Library",
+        "description": "Faded green felt and scattered balls sit under a flickering lamp.",
+        "item": "",
+        "puzzle": "",
+    },
     "Upstairs Landing": {
         "south": "Foyer",
         "west": "Master Bedroom",
         "east": "HallwayOne",
         "north": "Balcony",
+        "description": "The upstairs hall creaks with every step, as if warning you back.",
         "item": "",
-        "randEvent": ""
+        "puzzle": "",
+    },
+    "Balcony": {
+        "south": "Upstairs Landing",
+        "description": "Rain lashes the balcony railing while distant thunder rolls.",
+        "item": "",
+        "puzzle": "",
     },
     "Master Bedroom": {
         "east": "Upstairs Landing",
+        "south": "Waiting Room",
+        "description": "A massive bed sits untouched beneath a torn velvet canopy.",
         "item": "",
-        "randEvent": ""
+        "puzzle": "",
+    },
+    "Waiting Room": {
+        "north": "Master Bedroom",
+        "south": "Master Bathroom",
+        "description": "An ornate mirror reflects the room a second too slowly.",
+        "item": "",
+        "puzzle": "",
+    },
+    "Master Bathroom": {
+        "north": "Waiting Room",
+        "description": "A cracked tub and blackened tiles smell faintly of stormwater.",
+        "item": "",
+        "puzzle": "",
     },
     "HallwayOne": {
         "west": "Upstairs Landing",
         "south": "HallwayTwo",
         "east": "Boys Bedroom",
+        "description": "Portraits along the wall seem to follow you as you pass.",
         "item": "",
-        "randEvent": ""
+        "puzzle": "",
     },
     "Boys Bedroom": {
         "west": "HallwayOne",
+        "description": "Toy soldiers are lined up neatly, all facing the door.",
         "item": "",
-        "randEvent": ""
+        "puzzle": "",
     },
     "HallwayTwo": {
         "north": "HallwayOne",
         "east": "Bathroom",
         "south": "HallwayThree",
+        "description": "The wallpaper peels in long strips like old bandages.",
         "item": "",
-        "randEvent": ""
+        "puzzle": "",
     },
     "Bathroom": {
         "west": "HallwayTwo",
-        "item": "",
-        "randEvent": ""
+        "description": "The sink drips steadily, though the pipes should be dry.",
+        "item": "taser",
+        "puzzle": "",
     },
     "HallwayThree": {
         "east": "Girls Bedroom",
         "north": "HallwayTwo",
+        "description": "A cold draft moves through this hall with a faint whisper.",
         "item": "",
-        "randEvent": ""
+        "puzzle": "",
     },
-    "Master Bedroom": {
-        "east": "Upstairs Landing",
-        "south": "Waiting Room", 
-        "item": "",
-        "randEvent": ""
-    },
-    "Waiting Room": {
-        "north": "Master Bedroom",
-        "south": "Master Bathroom",
-        "item": "",
-        "randEvent": ""
-    },
-    "Master Bathroom": {
-        "north": "Waiting Room",
-        "item": "",
-        "randEvent": ""
+    "Girls Bedroom": {
+        "west": "HallwayThree",
+        "description": "A music box sits open on the floor, spinning without sound.",
+        "item": "potion",
+        "puzzle": "",
     },
 }
-
-

@@ -1,8 +1,12 @@
 def showInstructions():
-    print('''
-          RPG Game
-          ========
-          Commands:
-          go [direction]
-          get [item]
-          ''')
+    print(
+        """
+RPG Game
+========
+Commands:
+go [direction]
+get [item]
+inventory
+quit
+"""
+    )
