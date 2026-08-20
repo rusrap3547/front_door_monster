@@ -143,6 +143,9 @@ while True:
         else:
             print("You can't go that way.")
 
+    elif command == "look":
+        func.look(currentRoom, rooms)
+
     elif command == "inventory":
         print(f"You have: {', '.join(inventory)}")
 
