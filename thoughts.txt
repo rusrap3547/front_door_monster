@@ -1,0 +1,19 @@
+monster is the decider
+
+start game -> monster is selected -> key values fill out the variables -> text based adventure -> choose the direction ot find the items and collect them -> need both items to go to the backyard without losing -> get the key from green house -> tkae hte front door key to the front door and leave.
+
+showinstructions will display each time
+
+
+example monster: 
+
+Anime = {
+    "startingRoom" = "this will name the room you start in should change per monster by fixing hte variable",
+    "hint" = "This is what you get when you look on the balcony",
+    "weakness": "This will give a first item to "weaken the monster"
+    "neededItem": "This is the item you will find."
+    "success": this is the message you get for going to the monster with both items.
+    "failure": this is what you get for seeing hte monster without the items
+}
+
+Endgame text: After the vicious encounter with $monster, you made your way out the front door running as fast as possible. Congratulations, you have beaten the monster and survived.
