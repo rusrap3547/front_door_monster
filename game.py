@@ -7,7 +7,7 @@ from dictionaries.monsters import Vampire
 func.showInstructions()
 
 inventory = []
-currentRoom = monster["Vampire"]["startingRoom"]
+currentRoom = monster[Vampire]["startingRoom"]
 
 while True:
     print(f"You are currently in the {currentRoom}.")
