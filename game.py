@@ -4,7 +4,21 @@ import dictionaries.monsters as monster
 import os
 import random
 
-func.showInstructions()
+
+def pick_random_monster(monsters=monster.MONSTERS):
+    monster.validate_monsters(monsters)
+
+    monster_names = list(monsters.keys())
+    monster_count = len(monster_names)
+    if monster_count == 0:
+        raise ValueError("No monsters are available.")
+
+    selected_index = random.randrange(monster_count)
+    selected_name = monster_names[selected_index]
+    return selected_name, monsters[selected_name]
+
+
+func.show_instructions()
 
 inventory = []
 forced_monster_name = os.environ.get("FDM_MONSTER", "").strip()
@@ -14,10 +28,10 @@ if forced_monster_name:
         current_monster = monster.MONSTERS[forced_monster_name]
     else:
         print(f"Unknown FDM_MONSTER '{forced_monster_name}'. Falling back to random monster.")
-        current_monster_name, current_monster = monster.get_random_monster()
+        current_monster_name, current_monster = pick_random_monster()
 else:
-    current_monster_name, current_monster = monster.get_random_monster()
-currentRoom = current_monster["startingRoom"]
+    current_monster_name, current_monster = pick_random_monster()
+current_room = current_monster["startingRoom"]
 monster_defeated = False
 hint_found = False
 visited_rooms = set()
@@ -76,18 +90,18 @@ if lock_options:
 print("Something is hunting you in this house. Find the hint to learn what it is.")
 
 while True:
-    print(f"You are currently in the {currentRoom}.")
+    print(f"You are currently in the {current_room}.")
 
-    if currentRoom not in visited_rooms:
-        print(rooms.rooms[currentRoom].get("description", ""))
-        visited_rooms.add(currentRoom)
+    if current_room not in visited_rooms:
+        print(rooms.rooms[current_room].get("description", ""))
+        visited_rooms.add(current_room)
 
-    if currentRoom == "Balcony" and not hint_found:
+    if current_room == "Balcony" and not hint_found:
         print("A torn note catches in the wind...")
         print(current_monster["hint"])
         hint_found = True
 
-    room_item = rooms.rooms[currentRoom].get("item", "")
+    room_item = rooms.rooms[current_room].get("item", "")
     if room_item:
         print(f"You see {room_item}.")
 
@@ -106,10 +120,10 @@ while True:
     if command == "get":
         if not argument:
             print("Get what?")
-        elif argument == rooms.rooms[currentRoom].get("item", ""):
+        elif argument == rooms.rooms[current_room].get("item", ""):
             print(f"You got the {argument}!")
             inventory.append(argument)
-            rooms.rooms[currentRoom]["item"] = ""
+            rooms.rooms[current_room]["item"] = ""
 
             if argument == "balcony key":
                 print("The lights snap out for a heartbeat.")
@@ -120,18 +134,18 @@ while True:
     elif command == "go":
         if not argument:
             print("Go where?")
-        elif argument in rooms.rooms[currentRoom]:
-            door_lock = locked_doors.get((currentRoom, argument))
+        elif argument in rooms.rooms[current_room]:
+            door_lock = locked_doors.get((current_room, argument))
             if door_lock and door_lock["key"] not in inventory:
                 print(
                     f"The way to {door_lock['room']} is locked. You need the {door_lock['key']}."
                 )
                 continue
 
-            currentRoom = rooms.rooms[currentRoom][argument]
-            print(f"You are now in the {currentRoom}.")
+            current_room = rooms.rooms[current_room][argument]
+            print(f"You are now in the {current_room}.")
 
-            if currentRoom == "Green House" and not monster_defeated:
+            if current_room == "Green House" and not monster_defeated:
                 has_weakness = current_monster["weakness"] in inventory
                 has_needed_item = current_monster["neededItem"] in inventory
                 if has_weakness and has_needed_item:
@@ -144,7 +158,7 @@ while True:
             print("You can't go that way.")
 
     elif command == "look":
-        func.look(currentRoom, rooms)
+        func.look(current_room, rooms)
 
     elif command == "inventory":
         print(f"You have: {', '.join(inventory)}")
@@ -152,7 +166,7 @@ while True:
     else:
         print("Unknown command.")
 
-    if currentRoom == "Front Door" and "front door key" in inventory:
+    if current_room == "Front Door" and "front door key" in inventory:
         print(
             f"After the vicious encounter with {current_monster_name}, you made your way out the front door running as fast as possible. Congratulations, you have beaten the monster and survived."
         )
