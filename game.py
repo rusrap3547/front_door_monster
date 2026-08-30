@@ -4,20 +4,6 @@ import dictionaries.monsters as monster
 import os
 import random
 
-
-def pick_random_monster(monsters=monster.MONSTERS):
-    monster.validate_monsters(monsters)
-
-    monster_names = list(monsters.keys())
-    monster_count = len(monster_names)
-    if monster_count == 0:
-        raise ValueError("No monsters are available.")
-
-    selected_index = random.randrange(monster_count)
-    selected_name = monster_names[selected_index]
-    return selected_name, monsters[selected_name]
-
-
 func.show_instructions()
 
 inventory = []
@@ -28,9 +14,9 @@ if forced_monster_name:
         current_monster = monster.MONSTERS[forced_monster_name]
     else:
         print(f"Unknown FDM_MONSTER '{forced_monster_name}'. Falling back to random monster.")
-        current_monster_name, current_monster = pick_random_monster()
+        current_monster_name, current_monster = func.pick_random_monster()
 else:
-    current_monster_name, current_monster = pick_random_monster()
+    current_monster_name, current_monster = func.pick_random_monster()
 current_room = current_monster["startingRoom"]
 monster_defeated = False
 hint_found = False
