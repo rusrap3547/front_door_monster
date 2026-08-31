@@ -1,4 +1,7 @@
-def showInstructions():
+import random
+import dictionaries.monsters as monster
+
+def show_instructions():
     print(
         """
 RPG Game
@@ -12,18 +15,18 @@ quit
 """
     )
     
-def look(currentRoom, rooms):
+def look(current_room, rooms):
     """
     Display room details including description, items, and available exits.
     
     Args:
-        currentRoom: The name of the current room
+        current_room: The name of the current room
         rooms: The rooms dictionary from rooms.py
     """
-    room = rooms.rooms[currentRoom]
+    room = rooms.rooms[current_room]
     
     # Print room name and description
-    print(f"\n=== {currentRoom} ===")
+    print(f"\n=== {current_room} ===")
     print(room.get("description", ""))
     
     # Print items in the room
@@ -45,3 +48,15 @@ def look(currentRoom, rooms):
     else:
         print("  No exits available.")
     print()
+
+def pick_random_monster(monsters=monster.MONSTERS):
+    monster.validate_monsters(monsters)
+
+    monster_names = list(monsters.keys())
+    monster_count = len(monster_names)
+    if monster_count == 0:
+        raise ValueError("No monsters are available.")
+
+    selected_index = random.randrange(monster_count)
+    selected_name = monster_names[selected_index]
+    return selected_name, monsters[selected_name]
